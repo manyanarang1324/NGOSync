@@ -31,7 +31,7 @@ export const registerUser = async (req, res, next) => {
 
     const token = jwt.sign(
       { id: user._id, role: user.role },
-      process.env.JWT_SECRET || 'ngosync_secret',
+      process.env.JWT_SECRET || 'ngosync_super_secret_jwt_key_2026',
       { expiresIn: '30d' }
     );
 
@@ -75,7 +75,7 @@ export const loginUser = async (req, res, next) => {
 
     const token = jwt.sign(
       { id: user._id, role: user.role },
-      process.env.JWT_SECRET || 'ngosync_secret',
+      process.env.JWT_SECRET || 'ngosync_super_secret_jwt_key_2026',
       { expiresIn: '30d' }
     );
 
@@ -95,12 +95,13 @@ export const loginUser = async (req, res, next) => {
   }
 };
 
-// Get Current User Profile
+// Get Current Logged In User
 export const getMe = async (req, res, next) => {
   try {
+    const user = await User.findById(req.user._id).select('-password');
     res.json({
       success: true,
-      message: 'Auth controller active',
+      data: user,
     });
   } catch (error) {
     next(error);
