@@ -1,0 +1,15 @@
+{
+  "name": "ngosync-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NGOSync - NGO Management & Synchronization Platform",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server",
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
