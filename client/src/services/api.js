@@ -30,4 +30,39 @@ export const registerUser = async (userData) => {
   return response.data;
 };
 
+export const fetchCampaigns = async (params = {}) => {
+  const response = await API.get('/campaigns', { params });
+  return response.data;
+};
+
+export const createCampaign = async (campaignData) => {
+  const response = await API.post('/campaigns', campaignData);
+  return response.data;
+};
+
+export const processDonation = async (donationData) => {
+  const response = await API.post('/donations', donationData);
+  return response.data;
+};
+
+export const fetchMyDonations = async () => {
+  const response = await API.get('/donations/my-donations');
+  return response.data;
+};
+
+export const fetchEvents = async () => {
+  const response = await API.get('/events');
+  return response.data;
+};
+
+export const createEvent = async (eventData) => {
+  const response = await API.post('/events', eventData);
+  return response.data;
+};
+
+export const applyForEvent = async (eventId) => {
+  const response = await API.post(`/events/${eventId}/apply`);
+  return response.data;
+};
+
 export default API;
