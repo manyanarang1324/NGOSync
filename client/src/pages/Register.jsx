@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { UserPlus, Mail, Lock, User, Building, AlertCircle } from 'lucide-react';
 import { registerUser } from '../services/api';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ export default function Register() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +25,7 @@ export default function Register() {
     try {
       const res = await registerUser(formData);
       if (res.success) {
-        localStorage.setItem('ngosync_token', res.data.token);
-        alert(`Account created successfully for ${res.data.name}!`);
+        login(res.data);
         navigate('/');
       }
     } catch (err) {

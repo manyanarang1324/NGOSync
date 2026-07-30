@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { LogIn, Mail, Lock, AlertCircle } from 'lucide-react';
 import { loginUser } from '../services/api';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,8 +19,7 @@ export default function Login() {
     try {
       const res = await loginUser(formData);
       if (res.success) {
-        localStorage.setItem('ngosync_token', res.data.token);
-        alert(`Logged in successfully as ${res.data.name}!`);
+        login(res.data);
         navigate('/');
       }
     } catch (err) {
