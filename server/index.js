@@ -8,6 +8,7 @@ import authRoutes from './routes/authRoutes.js';
 import campaignRoutes from './routes/campaignRoutes.js';
 import donationRoutes from './routes/donationRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
+import seedRoutes from './routes/seedRoutes.js';
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/donations', donationRoutes);
 app.use('/api/events', eventRoutes);
+app.use('/api/seed', seedRoutes);
 
 app.get('/', (req, res) => {
   res.json({
