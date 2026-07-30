@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Campaigns from './pages/Campaigns';
 import Volunteers from './pages/Volunteers';
+import Demands from './pages/Demands';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -20,6 +21,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/campaigns" element={<Campaigns />} />
+            <Route path="/demands" element={<Demands />} />
             <Route path="/volunteers" element={<Volunteers />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

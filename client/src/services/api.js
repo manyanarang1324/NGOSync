@@ -68,4 +68,19 @@ export const applyForEvent = async (eventId) => {
   return response.data;
 };
 
+export const fetchDemands = async (params = {}) => {
+  const response = await API.get('/demands', { params });
+  return response.data;
+};
+
+export const createDemand = async (demandData) => {
+  const response = await API.post('/demands', demandData);
+  return response.data;
+};
+
+export const contributeDemand = async (id, amountContributed = 1) => {
+  const response = await API.post(`/demands/${id}/contribute`, { amountContributed });
+  return response.data;
+};
+
 export default API;

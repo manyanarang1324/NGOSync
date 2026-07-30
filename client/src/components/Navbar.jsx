@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { HeartHandshake, LogIn, UserPlus, Home as HomeIcon, Megaphone, Users, LayoutDashboard, LogOut } from 'lucide-react';
+import { HeartHandshake, LogIn, UserPlus, Home as HomeIcon, Megaphone, Users, Package, LayoutDashboard, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
@@ -48,14 +48,17 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <Link to="/" className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+          <Link to="/" className="btn btn-secondary" style={{ padding: '0.5rem 0.85rem' }}>
             <HomeIcon size={16} /> Home
           </Link>
-          <Link to="/campaigns" className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>
+          <Link to="/campaigns" className="btn btn-secondary" style={{ padding: '0.5rem 0.85rem' }}>
             <Megaphone size={16} /> Campaigns
           </Link>
-          <Link to="/volunteers" className="btn btn-secondary" style={{ padding: '0.5rem 1rem' }}>
+          <Link to="/demands" className="btn btn-secondary" style={{ padding: '0.5rem 0.85rem' }}>
+            <Package size={16} /> NGO Demands
+          </Link>
+          <Link to="/volunteers" className="btn btn-secondary" style={{ padding: '0.5rem 0.85rem' }}>
             <Users size={16} /> Volunteer Hub
           </Link>
 
